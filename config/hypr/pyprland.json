@@ -1,7 +1,8 @@
 {
     "pyprland": {
         "plugins": [
-            "scratchpads"
+            "scratchpads",
+            "expose"
         ]
     },
     "scratchpads": {
@@ -9,11 +10,9 @@
             "command": "kitty --class kitty-dropterm",
             "animation": "fromTop",
             "placements": ""
-        },
-        "chat": {
-            "command": "discord",
-            "animation": "fromTop",
-            "placements": ""
         }
-    }
+    },
+    "expose": {
+        "include_special": true
+      }
 }

@@ -4,7 +4,7 @@
 @use '../css/colors';
 
 .w_glance {
-    @include animations.flyin("&", "right");
+    @include animations.flyin("&", "top");
 
     .layout-box {
         margin: 8px;
