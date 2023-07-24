@@ -1,5 +1,5 @@
-@use 'css/animations';
-@use 'css/colors';
+@use '../css/animations';
+@use '../css/colors';
 
 .w_player {
     @include animations.flyin("&", "top");
@@ -7,14 +7,14 @@
     .layout-box {
         margin: 20px;
         background-color: colors.$primary;
-        border-radius: 10px;
+        border-radius: 4px;
 
         .left {
-            border-radius: 10px;
+            border-radius: 4px;
             background-color: colors.$secondary;
 
             .image {
-                border-radius: 10px;
+                border-radius: 4px;
             }
 
             .controls {

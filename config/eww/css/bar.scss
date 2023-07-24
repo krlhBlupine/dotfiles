@@ -1,9 +1,9 @@
 @use "sass:list";
-@use 'css/animations';
-@use 'css/colors';
+@use '../css/animations';
+@use '../css/colors';
 
 .w_bar {
-    margin: 10px { bottom: 0px }
+    margin: 8px { bottom: 0px }
 
     $all-modules: "launcher", "workspaces", "sysinfo", "tray", "player", "info", "media", "power";
     @each $modules in $all-modules {
@@ -13,12 +13,12 @@
                 @include animations.fade("&:hover", colors.$primary, colors.$accent);
                 @include animations.fade("&:active", colors.$accent, colors.$primary);
             }
-            border-radius: 10px;
+            border-radius: 4px;
             background-color: colors.$primary;
 
             .widget {
-                padding-left: 14px;
-                padding-right: 14px;
+                padding-left: 10px;
+                padding-right: 10px;
             }
         }
     }

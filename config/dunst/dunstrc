@@ -1,12 +1,12 @@
 [global]
-    font = JetbrainsMono Nerd Font 11
+    font = Operator Mono Light 11
     word_wrap = yes
     markup = full
     follow = mouse
     offset = 20x24
 
     width = (0, 500)
-    corner_radius = 10
+    corner_radius = 4
 
     timeout = 5
     show_age_threshold = 60

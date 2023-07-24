@@ -1,5 +1,5 @@
-@use 'css/animations';
-@use 'css/colors';
+@use '../css/animations';
+@use '../css/colors';
 
 .w_media {
     @include animations.flyin("&", "top");
@@ -7,7 +7,7 @@
     .layout-box {
         margin: 20px;
         background-color: colors.$color1;
-        border-radius: 10px;
+        border-radius: 4px;
         padding: 20px {
             top: 10px;
         }
@@ -23,7 +23,7 @@
 
             background-color: colors.$primary;
             padding: 0px 10px;
-            border-radius: 10px;
+            border-radius: 4px;
         }
 
         .default {
@@ -39,18 +39,18 @@
 
         contents {
             background-color: colors.$color2;
-            border-radius: 10px;
+            border-radius: 4px;
             margin-top: 10px;
 
             slider {
                 background-color: colors.$accent;
-                border-radius: 10px;
+                border-radius: 4px;
                 min-height: 10px;
             }
 
             highlight {
                 background-color: colors.$accent;
-                border-radius: 10px;
+                border-radius: 4px;
             }
         }
     }

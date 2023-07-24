@@ -151,7 +151,7 @@ class Weather(CachedIntervalListener):
     def __init__(self) -> None:
         super().__init__(identifier="weather", interval=3600)
         self.location = args.location
-        self.api = os.getenv("OPENWEATHER_API_KEY")
+        self.api = '51894bc2710b5d798cf87d6c2be8e180'
 
     def read(self) -> dict:
         # https://openweathermap.org/api/geocoding-api
@@ -348,8 +348,9 @@ class Workspaces(BaseListener):
         self.persistent = [
             {"id": 1, "glyph": ""},
             {"id": 2, "glyph": ""},
-            {"id": 3, "glyph": ""},
-            {"id": 4, "glyph": ""}
+            {"id": 3, "glyph": "󰠮"},
+            {"id": 4, "glyph": ""},
+            {"id": 5, "glyph": ""}
         ]
 
     def read(self):

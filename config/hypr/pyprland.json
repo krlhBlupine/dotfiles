@@ -9,6 +9,11 @@
             "command": "kitty --class kitty-dropterm",
             "animation": "fromTop",
             "placements": ""
+        },
+        "chat": {
+            "command": "discord",
+            "animation": "fromTop",
+            "placements": ""
         }
     }
 }

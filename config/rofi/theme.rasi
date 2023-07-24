@@ -2,7 +2,7 @@
 
 #window {
     border: 5px;
-    border-radius: 10px;
+    border-radius: 4px;
     border-color: @border-color;
     background-color: @background;
     position: center;
@@ -18,14 +18,14 @@
 
 #imageview {
     spacing: 20px;
-    border-radius: 10px;
+    border-radius: 4px;
     padding: 2.5ch 3.5ch 2.5ch;
     background-image: url("image.png", height);
     children: [inputbar, message];
 }
 
 #inputbar {
-    border-radius: 20px;
+    border-radius: 4px;
     padding: 20px;
     background-color: @background;
     children: [textbox-prompt-colon, entry];
@@ -46,7 +46,7 @@
 #message {
     expand: true;
     padding: inherit;
-    border-radius: 20px;
+    border-radius: 4px;
     background-color: @message-background;
 }
 
@@ -65,7 +65,7 @@
 
 #element {
     border: 0;
-    border-radius: 20px;
+    border-radius: 4px;
     padding: 10px;
     background-color: #00FFFF;
 }

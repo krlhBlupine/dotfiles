@@ -16,12 +16,13 @@ dotenv.load_dotenv()
 CONFIG = {
     "config_template_path": Path("~/.dotfiles/config").expanduser(),
     "config_path": Path("~/.config").expanduser(),
+    "scripts_path": Path("~/.dotfiles/scripts").expanduser(),
 
     "wallpaper_folder": Path("~/Pictures/wallpapers").expanduser(),
-    "wallpaper_type": "iterative", # unsplash, random, or iterative (Unsplash can be really slow)
+    "wallpaper_type": "random", # unsplash, random, or iterative (Unsplash can be really slow)
     "unsplash_query": "mountain",
 
-    "backend": "colorthief" # ensure the package for the backend is installed
+    "backend": "wal" # ensure the package for the backend is installed
 }
 
 class CustomTemplate(Template):
@@ -56,6 +57,7 @@ class TemplateWriter:
         # run post-reload scripts
         for template in CONFIG["config_template_path"].iterdir():
             getattr(self, template.name.lower(), lambda: None)()
+        subprocess.Popen(['/home/olive/.dotfiles/scripts/visTheme.sh']) #KRLH: switches the vis colors
 
     def eww(self):
         color = tuple(int((self.mappings["text"] + "FF")[i : i + 2], 16) for i in (0, 2, 4, 6))
@@ -74,6 +76,10 @@ class TemplateWriter:
     def swaylock(self):
         subprocess.Popen(["killall", "swayidle"])
         subprocess.Popen(["swayidle"])
+
+    def thunar(self):
+        subprocess.Popen("killall", "thunar")
+        subprocess.Popen("thunar")
 
     def hypr(self):
         if subprocess.run(["pidof", "obs"], check=False, stdout=subprocess.PIPE).stdout: # hyprland crashes if configs get updated while obs is running
@@ -169,7 +175,12 @@ if __name__ == "__main__":
         print("Invalid wallpaper type", file=sys.stderr)
         exit(1)
 
-    subprocess.Popen(["swww", "img", wallpaper, "--transition-type=grow", "--transition-fps=120", "--transition-pos=top-right"])
+    subprocess.Popen(["swww", "img", wallpaper, "--transition-type=outer", "--transition-fps=200", "--transition-pos=top"])
+    print('Setting term colors.')
+    print(wallpaper)
+    f = open("/home/olive/.config/kitty/colors.conf", "w")
+    subprocess.Popen(['/home/olive/.dotfiles/scripts/termcolors.sh', wallpaper], stdout=f)
+
 
     # use pywal to get colors
     colors = pywal.colors.get(wallpaper, backend=CONFIG["backend"])
@@ -197,3 +208,4 @@ if __name__ == "__main__":
         # misc
         "bluetooth": "0a3b8c",
     }).reload()
+    exit()

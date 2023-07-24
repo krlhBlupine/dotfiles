@@ -703,7 +703,7 @@
 #: KITTY_CHILD_CMDLINE can be used to get the program running in the
 #: window in which the bell occurred.
 
-bell_path /home/olive/Sound/termBell.wav
+bell_path /home/robin/sounds/termBell.wav
 
 #: Path to a sound file to play as the bell sound. If set to none, the
 #: system default bell sound is used. Must be in a format supported by
@@ -1059,11 +1059,11 @@ bell_path /home/olive/Sound/termBell.wav
  foreground #f5e5d9
  #background #9AA2C1
  #background #7480AA
- background #202c35
+ background #334050
 
 #: The foreground and background colors.
 
- background_opacity 0.55
+ background_opacity 0.75
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1136,7 +1136,77 @@ bell_path /home/olive/Sound/termBell.wav
 #: to be used unchanged. Note that these colors can be overridden by
 #: the program running in the terminal.
 
-include colors.conf
+#: The color table {{{
+
+#: The 256 terminal colors. There are 8 basic colors, each color has a
+#: dull and bright version, for the first 16 colors. You can set the
+#: remaining 240 colors as color16 to color255.
+
+ color0 #342912
+ color8 #8B7044
+
+#: black
+
+ color1 #4D5B7E
+ color9 #7487C0
+
+#: red
+
+ color2  #6A7890
+ color10 #8FA0C4
+
+#: green
+
+ color3  #8495AE
+ color11 #A3B5D4
+
+#: yellow
+
+ color4  #A6B6C2
+ color12 #BECFDF
+
+#: blue
+
+ color5  #AEADAC
+ color13 #D2C8C0
+
+#: magenta
+
+ color6 #C24C28
+ color14 #DB7E6E
+
+#: cyan
+
+ color7  #8B777D
+ color15 #BE9787
+
+#: white
+
+# mark1_foreground black
+
+#: Color for marks of type 1
+
+# mark1_background #98d3cb
+
+#: Color for marks of type 1 (light steel blue)
+
+# mark2_foreground black
+
+#: Color for marks of type 2
+
+# mark2_background #f2dcd3
+
+#: Color for marks of type 1 (beige)
+
+# mark3_foreground black
+
+#: Color for marks of type 3
+
+# mark3_background #f274bc
+
+#: Color for marks of type 3 (violet)
+
+#: }}}
 #: }}}
 
 #: Advanced {{{
