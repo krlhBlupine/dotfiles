@@ -3,7 +3,7 @@
 @use '../css/colors';
 
 .w_bar {
-    margin: 8px { bottom: 0px }
+    margin: 3px { bottom: 2px }
 
     $all-modules: "launcher", "workspaces", "sysinfo", "tray", "player", "info", "media", "power";
     @each $modules in $all-modules {

@@ -22,7 +22,7 @@ CONFIG = {
     "wallpaper_type": "random", # unsplash, random, or iterative (Unsplash can be really slow)
     "unsplash_query": "mountain",
 
-    "backend": "wal" # ensure the package for the backend is installed
+    "backend": "schemer" # ensure the package for the backend is installed
 }
 
 class CustomTemplate(Template):
@@ -57,7 +57,6 @@ class TemplateWriter:
         # run post-reload scripts
         for template in CONFIG["config_template_path"].iterdir():
             getattr(self, template.name.lower(), lambda: None)()
-        subprocess.Popen(['/home/olive/.dotfiles/scripts/visTheme.sh']) #KRLH: switches the vis colors
 
     def eww(self):
         color = tuple(int((self.mappings["text"] + "FF")[i : i + 2], 16) for i in (0, 2, 4, 6))
@@ -76,10 +75,6 @@ class TemplateWriter:
     def swaylock(self):
         subprocess.Popen(["killall", "swayidle"])
         subprocess.Popen(["swayidle"])
-
-    def thunar(self):
-        subprocess.Popen("killall", "thunar")
-        subprocess.Popen("thunar")
 
     def hypr(self):
         if subprocess.run(["pidof", "obs"], check=False, stdout=subprocess.PIPE).stdout: # hyprland crashes if configs get updated while obs is running
@@ -100,7 +95,7 @@ class TemplateWriter:
             f"FG={self.mappings['text']}",
             f"SEL_FG={self.mappings['text']}",
             "SPACING=2",
-            "ROUNDNESS=5",
+            "ROUNDNESS=2",
             "BTN_OUTLINE_WIDTH=1",
             "BTN_OUTLINE_OFFSET=-3"
         ])
@@ -114,8 +109,8 @@ class TemplateWriter:
         # a 512x512 image centered on the wallpaper
         img = Image.open(self.mappings["wallpaper"])
         box = (
-            *((ax - 512) // 2 for ax in img.size),
-            *((ax + 512) // 2 for ax in img.size))
+            *((ax - 1024) // 2 for ax in img.size),
+            *((ax + 1024) // 2 for ax in img.size))
         img.crop(box).save(CONFIG["config_path"].joinpath("rofi/image.png"))
 
 
@@ -175,7 +170,7 @@ if __name__ == "__main__":
         print("Invalid wallpaper type", file=sys.stderr)
         exit(1)
 
-    subprocess.Popen(["swww", "img", wallpaper, "--transition-type=outer", "--transition-fps=200", "--transition-pos=top"])
+    subprocess.Popen(["swww", "img", wallpaper, "--transition-type=wipe", "--transition-angle=270", "--transition-step=30", "--transition-fps=200", "--transition-duration=1.5"])
     print('Setting term colors.')
     print(wallpaper)
     f = open("/home/olive/.config/kitty/colors.conf", "w")

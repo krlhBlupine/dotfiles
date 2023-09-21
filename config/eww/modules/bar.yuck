@@ -21,6 +21,7 @@
         (w_bar_player)
         )
     (box :class "end" :halign "end" :spacing "10" :space-evenly false
+        (w_bar_timer)
         (w_bar_media)
         (w_bar_info)
         (w_bar_power)
@@ -32,6 +33,7 @@
 (defvar r_bar_battery false)
 (defvar r_bar_launcher false)
 (defvar r_bar_exit false)
+(defvar r_bar_timeremain false)
 (defvar r_bar_date false)
 (defvar r_bar_ssid false)
 
@@ -90,6 +92,12 @@
         :text {player?.alive?.[0]?.artist == "" ?
             "${player?.alive?.[0]?.title}" :
             "${player?.alive?.[0]?.artist} - ${player?.alive?.[0]?.title}"})
+))
+
+(defwidget w_bar_timer[] (w_bar_widget :class "timer" 
+    :onleftclick "eww open --toggle timer"
+    :spacing 10 :space-evenly false
+    
 ))
 
 (defwidget w_bar_media[] (w_bar_widget

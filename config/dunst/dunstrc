@@ -6,7 +6,7 @@
     offset = 20x24
 
     width = (0, 500)
-    corner_radius = 4
+    corner_radius = 2
 
     timeout = 5
     show_age_threshold = 60
@@ -19,6 +19,8 @@
     progress_bar_frame_width = 0
     progress_bar_corner_radius = 5
 
+    enable_recursive_icon_lookup=yes
+    icon_theme="Tela-black-dark"
     min_icon_size = 0
     max_icon_size = 80
     icon_corner_radius = 5
