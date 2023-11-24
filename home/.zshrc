@@ -8,7 +8,7 @@ export ZSH="/usr/share/oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gnzh"
+ZSH_THEME="gnzhOlive"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,7 +70,7 @@ ZSH_THEME="gnzh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages cp extract npm web-search colorize command-not-found)
+plugins=(git colored-man-pages cp extract npm web-search colorize virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,11 +82,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -101,12 +101,19 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-PATH=~/.local/bin:$PATH
+PATH=~/.local/bin:/home/olive/.cargo/bin/:$PATH
+
 
 EDITOR=nvim
 alias vim="nvim"
+alias txvpn='sudo openvpn --config ~/Documents/vpn/Trust.Zone-United-States-SOUTH.ovpn --daemon --auth-user-pass ~/Documents/vpn/up.txt'
+alias irvpn='sudo openvpn --config ~/Documents/vpn/Trust.Zone-Ireland.ovpn --daemon --auth-user-pass ~/Documents/vpn/up.txt'
 
 alias untar="tar -cvzf $1"
 alias p="python3"
+alias netconn="sh $HOME/Programs/nmcli-rofi.sh"
+ghArchive=/run/media/olive/ghArchive/
 export TERM=xterm-256color
 
+#docker stuff
+alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx'

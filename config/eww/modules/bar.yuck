@@ -61,7 +61,7 @@
 
 ;; http://wiki.hyprland.org/Useful-Utilities/Status-Bars/#eww
 (defwidget w_bar_workspaces[active current] (w_bar_widget :class "workspaces"
-    (box :spacing 20
+    (box :spacing 5
     (for workspace in {active}
         (eventbox :class "${workspace.id == current ? "active" : "inactive"}" :width 24
             :onclick "hyprctl dispatch workspace ${workspace.id}"
@@ -71,8 +71,8 @@
 
 (defwidget w_bar_sysinfo[] (w_bar_widget :class "sysinfo" :spacing 12 :space-evenly false
     :onleftclick "eww update r_bar_systray=$(echo 'print(not ${r_bar_systray})' | lua)"
-    (label :text " ${round((EWW_RAM.used_mem) / (1024 * 1024 * 1024), 1)}G")
-    (label :text " ${round(EWW_CPU.avg, 1)}%")
+    (label :text "  ${round((EWW_RAM.used_mem) / (1024 * 1024 * 1024), 1)}G")
+    (label :text "  ${round(EWW_CPU.avg, 1)}%")
 ))
 
 (defwidget w_bar_tray[] (revealer
@@ -175,7 +175,7 @@
     :onhover "eww update r_bar_exit=true"
     :onhoverlost "eww update r_bar_exit=false"
     :onleftclick cmd_toggle_powermenu
-    (label :text "")
+    (label :text "󰿅")
     (revealer :reveal r_bar_exit
         :transition "slideleft"
         (label :text "exit" :style "padding-left: 10px"))
