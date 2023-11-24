@@ -3,5 +3,5 @@
 /images/*
 !/images/playerart-default.png
 !/images/launcher.png
-
+/.vscode
 /data
