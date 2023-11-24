@@ -20,7 +20,7 @@
             }
         }
 
-        border-radius: 4px;
+        border-radius: 8px;
         background-color: colors.$color1;
 
         .description {
@@ -38,7 +38,7 @@
             left: 20px
         }
 
-        border-radius: 4px;
+        border-radius: 8px;
         background-color: colors.$color1;
 
         .glyph {
@@ -58,7 +58,7 @@
             .header {
                 .event-incoming {
                     background-color: colors.$secondary;
-                    border-radius: 4px;
+                    border-radius: 8px;
                     padding: 2px 10px;
                 }
 
@@ -67,7 +67,7 @@
 
                     background-color: colors.$secondary;
                     padding: 0px 10px;
-                    border-radius: 20px;
+                    border-radius: 8px;
 
                     label {
                         font-size: 1.5em;
@@ -79,7 +79,7 @@
             .entry {
                 background-color: colors.$secondary;
                 padding: 10px;
-                border-radius: 4px;
+                border-radius: 8px;
 
                 .event-name {
                     padding: 0px 5px;
@@ -100,7 +100,7 @@
 
                 .event-time {
                     background-color: colors.$color1;
-                    border-radius: 4px;
+                    border-radius: 8px;
                     padding: 0px 10px;
                 }
             }
@@ -110,14 +110,14 @@
             .seperator {
                 margin: 2px;
                 padding: 2.5px;
-                border-radius: 4px;
+                border-radius: 8px;
                 background-color: colors.$color4;
             }
         }
         .time {
             background-color: colors.$color1;
             padding: 10px 0px;
-            border-radius: 4px;
+            border-radius: 8px;
 
             .clock {
                 font-size: 2em;
@@ -159,7 +159,7 @@
 
         .battery .profile {
             background-color: colors.$color1;
-            border-radius: 4px;
+            border-radius: 8px;
 
             .glyph {
                 font-size: 7em;
@@ -172,13 +172,13 @@
 
         .bluetooth, .wifi {
             background-color: colors.$color1;
-            border-radius: 4px;
+            border-radius: 8px;
             padding: 10px;
             .entry {
                 @include animations.fade("&:hover", colors.$secondary, colors.$accent);
                 @include animations.fade("&:active", colors.$accent, colors.$secondary);
 
-                border-radius: 4px;
+                border-radius: 8px;
                 background-color: colors.$secondary;
 
                 label {
@@ -194,7 +194,7 @@
 
         .controls {
             padding: 20px;
-            border-radius: 4px;
+            border-radius: 8px;
             background-color: colors.$color1;
 
             & > widget {

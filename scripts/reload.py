@@ -199,6 +199,7 @@ if __name__ == "__main__":
         "good": "26a65b",
         "warning": "d3980f",
         "text": "d2d2d2",
+        "darktext": "444444",
 
         # misc
         "bluetooth": "0a3b8c",

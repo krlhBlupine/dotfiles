@@ -6,21 +6,21 @@
 
     :geometry (geometry :anchor "top center"
         :width "100%"
-        :height "40px")
+        :height "28px")
 (w_bar))
 
 (defwidget w_bar[]
 (centerbox :class "w_bar"
-    (box :class "start" :halign "start" :spacing "10" :space-evenly false
+    (box :class "start" :halign "start" :spacing "4" :space-evenly false
         (w_bar_launcher)
         (w_bar_workspaces :active {workspaces?.active ?: []} :current {workspaces?.current})
         (w_bar_sysinfo)
         (w_bar_tray)
         )
-    (box :class "middle" :halign "center" :spacing "10" :space-evenly false
+    (box :class "middle" :halign "center" :spacing "4" :space-evenly false
         (w_bar_player)
         )
-    (box :class "end" :halign "end" :spacing "10" :space-evenly false
+    (box :class "end" :halign "end" :spacing "4" :space-evenly false
         (w_bar_timer)
         (w_bar_media)
         (w_bar_info)
@@ -55,7 +55,7 @@
     :onleftclick cmd_launcher
     :onhover "eww update r_bar_launcher=true"
     :onhoverlost "eww update r_bar_launcher=false"
-    (box :class "image" :width 16)
+    (box :class "image" :width 13)
     (revealer :reveal r_bar_launcher :transition "slideleft" (label :text "Launcher" :style "padding-left: 10px"))
 ))
 
@@ -124,20 +124,20 @@
 (defwidget w_bar_info[] (w_bar_widget :class "info"
     :onleftclick "eww open --toggle glance"
     :spacing 10 :space-evenly false
-    (eventbox :class "battery ${EWW_BATTERY.BAT0.status}"
-        :onhover "eww update r_bar_battery=true"
-        :onhoverlost "eww update r_bar_battery=false"
-        :onscroll "[ {} == 'up' ] && (${cmd_brightness_increase}) || (${cmd_brightness_decrease})"
-        (box :space-evenly false :spacing 2
-            (label :text
-                "${EWW_BATTERY.BAT0.capacity >= 80 ? " " :
-                "${EWW_BATTERY.BAT0.capacity >= 60 ? " " :
-                "${EWW_BATTERY.BAT0.capacity >= 40 ? " " :
-                "${EWW_BATTERY.BAT0.capacity >= 20 ? " " :
-                " "}"}"}"}")
-            (revealer :reveal r_bar_battery
-                :transition "slideleft"
-                (label :text "${EWW_BATTERY.BAT0.capacity}%" :style "padding-left: 10px"))))
+    ; (eventbox :class "battery ${EWW_BATTERY.BAT0.status}"
+    ;     :onhover "eww update r_bar_battery=true"
+    ;     :onhoverlost "eww update r_bar_battery=false"
+    ;     :onscroll "[ {} == 'up' ] && (${cmd_brightness_increase}) || (${cmd_brightness_decrease})"
+    ;     (box :space-evenly false :spacing 2
+    ;         (label :text
+    ;             "${EWW_BATTERY.BAT0.capacity >= 80 ? " " :
+    ;             "${EWW_BATTERY.BAT0.capacity >= 60 ? " " :
+    ;             "${EWW_BATTERY.BAT0.capacity >= 40 ? " " :
+    ;             "${EWW_BATTERY.BAT0.capacity >= 20 ? " " :
+    ;             " "}"}"}"}")
+    ;         (revealer :reveal r_bar_battery
+    ;             :transition "slideleft"
+    ;             (label :text "${EWW_BATTERY.BAT0.capacity}%" :style "padding-left: 10px"))))
     (eventbox :class "network ${network?.connectivity}"
         :onhover "eww update r_bar_ssid=true"
         :onhoverlost "eww update r_bar_ssid=false"

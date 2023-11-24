@@ -3,20 +3,18 @@
 
 .w_powermenu {
     background-color: transparent;
-    margin-right: 6px;
-    margin-top: 6px;
+    margin: 4px;
 
     .layout-box {
         @include animations.flyin("&", "right");
         @include animations.fade("button:hover", colors.$primary, colors.$secondary);
         button {
-            padding: 6px;
-            border-radius: 4px;
+            border-radius: 8px;
             background-color: colors.$primary;
 
 
             label {
-                color: colors.$accent;
+                color: colors.$text;
                 font-size: 25px;
             }
         }
@@ -24,19 +22,19 @@
         @each $selector in "power", "reboot", "logout", "hibernate" {
             .#{$selector} .transition-text {
                 font-weight: bolder;
-                font-size: 16px;
-                padding-right: 10px;
+                font-size: 10px;
+                padding-right: 2px;
                 color: transparent;
             }
 
             .#{$selector}:hover button {
                 transition: 100ms linear padding;
-                padding: 12px 12px;
+                padding: 2px 2px;
             }
 
             .#{$selector}:not(:hover) button {
                 transition: 100ms linear padding;
-                padding: 25px 35px;
+                padding: 2px 2px;
             }
 
             .#{$selector}:hover .transition-text {

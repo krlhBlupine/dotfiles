@@ -1,12 +1,12 @@
 [global]
-    font = Operator Mono Light 11
+    font = Operator Mono Light 13
     word_wrap = yes
     markup = full
     follow = mouse
     offset = 20x24
 
     width = (0, 500)
-    corner_radius = 2
+    corner_radius = 8
 
     timeout = 5
     show_age_threshold = 60
@@ -17,13 +17,13 @@
 
     frame_width = 2
     progress_bar_frame_width = 0
-    progress_bar_corner_radius = 5
+    progress_bar_corner_radius = 8
 
     enable_recursive_icon_lookup=yes
-    icon_theme="Tela-black-dark"
+    icon_theme=Tela-black-light
     min_icon_size = 0
     max_icon_size = 80
-    icon_corner_radius = 5
+    icon_corner_radius = 8
     text_icon_padding = 10
 
     dmenu = /usr/bin/rofi -p dunst:

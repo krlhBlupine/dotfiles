@@ -497,12 +497,15 @@ class Audio(BaseListener):
         buff = []
         for device in data:
             port = device.get("ports")
+            try:
+                volvar = int(device.get("volume").get("front-left").get("value_percent")[:-1])
+            except AttributeError: volvar = int(device.get("volume").get("mono").get("value_percent")[:-1])
             buff.append({
                 "name": device.get("name"),
                 "alias": device.get("description"),
                 "bus": device.get("properties").get("device.bus"),
                 "mute": device.get("mute"),
-                "volume": int(device.get("volume").get("front-left").get("value_percent")[:-1]),
+                "volume": volvar,
                 "port": port[0].get("type") if port else "Invalid"
             })
         return buff
